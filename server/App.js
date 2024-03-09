@@ -21,6 +21,10 @@ app.use('/', router);
 // app.get('/',(req,res) => {
 //     res.json('hello world')
 // })
+app.use('/', express.static('../frontend/dist'));
+app.use('/assests', express.static('../frontend/dist/assests'));
+
+//Define Routes Here
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'), (err) => {
     if (err) {
