@@ -21,6 +21,13 @@ app.use('/', router);
 // app.get('/',(req,res) => {
 //     res.json('hello world')
 // })
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'), (err) => {
+    if (err) {
+      console.error('Error sending file:', err);
+    }
+  });
+});
 
 const port = 3000;
 const start = async () => {
